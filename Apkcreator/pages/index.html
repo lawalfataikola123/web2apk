@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Web2APK</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,BlinkMacSystemFont,sans-serif;background:#0d1117;color:#c9d1d9;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem}
+h1{font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,#8b5cf6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.tagline{color:#8b949e;margin-bottom:2rem;font-size:1.1rem}
+.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:2rem;max-width:480px;width:100%;margin-bottom:1rem}
+.card h2{font-size:1.1rem;margin-bottom:.75rem;color:#e6edf3}
+.status{display:inline-block;width:10px;height:10px;border-radius:50%;background:#3fb950;margin-right:6px}
+.url{word-break:break-all;color:#58a6ff;font-size:.9rem;margin-top:.5rem;padding:.75rem;background:#0d1117;border-radius:8px;border:1px solid #21262d}
+.btn{display:inline-block;margin-top:1.5rem;padding:.75rem 2rem;background:linear-gradient(135deg,#8b5cf6,#06b6d4);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;border:none;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.9}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem}
+.feature{background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:.5rem;font-size:.85rem}
+.footer{margin-top:2rem;font-size:.8rem;color:#484f58}
+</style>
+</head>
+<body>
+<h1>Web2APK</h1>
+<p class="tagline">Build WebView APKs with Ad Injection — on Termux</p>
+<div class="card">
+<h2><span class="status"></span> Service Status</h2>
+<p>Backend running on Termux · tunneled via Cloudflare</p>
+<p class="url" id="tunnelUrl">Loading...</p>
+</div>
+<div class="card">
+<h2>Supported Ad Networks</h2>
+<div class="features">
+<div class="feature">AdMob</div>
+<div class="feature">Meta Audience Network</div>
+<div class="feature">Unity Ads</div>
+<div class="feature">AppLovin</div>
+</div>
+</div>
+<a class="btn" href="https://github.com/lawalfataikola123/web2apk" target="_blank">View on GitHub</a>
+<div class="footer">Self-hosted on Android/Termux · Flask + Cloudflare Tunnel</div>
+<script>
+fetch('https://horses-trees-russia-burst.trycloudflare.com/').then(r=>r.text()).then(t=>{
+  document.getElementById('tunnelUrl').textContent='https://horses-trees-russia-burst.trycloudflare.com'
+}).catch(()=>{
+  document.getElementById('tunnelUrl').textContent='Checking tunnel status...'
+})
+</script>
+</body>
+</html>

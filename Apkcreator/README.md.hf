@@ -1,0 +1,7 @@
+title: Web2APK
+emoji: 🚀
+colorFrom: purple
+colorTo: cyan
+sdk: docker
+pinned: false
+short_description: Build WebView APKs with ad injection
