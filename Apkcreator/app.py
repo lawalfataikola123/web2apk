@@ -300,12 +300,17 @@ def _build_manual(dec, out_apk, orig_dexes, new_dex):
         tmp.unlink()
     _sh.copy(str(out_apk), str(tmp))
     with zipfile.ZipFile(str(tmp), "a") as z:
-        # original dex files
-        for i, dex in enumerate(sorted(orig_dexes)):
-            name = "classes.dex" if i == 0 else f"classes{i+1}.dex"
-            z.write(str(dex), name)
-        # our injected activity (place after originals)
-        z.write(str(new_dex), f"classes{len(orig_dexes)+1}.dex")
+        n_orig = len(orig_dexes)
+        if n_orig == 0:
+            # no original dexes — our injected dex IS the primary
+            z.write(str(new_dex), "classes.dex")
+        else:
+            # original dex files
+            for i, dex in enumerate(sorted(orig_dexes)):
+                name = "classes.dex" if i == 0 else f"classes{i+1}.dex"
+                z.write(str(dex), name)
+            # our injected activity (place after originals)
+            z.write(str(new_dex), f"classes{n_orig+1}.dex")
         # carry over original assets (e.g. html web-app payloads) if present
         assets_dir = dec / "assets"
         if assets_dir.exists():
