@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Apkcreator - web app
+APK Ads Injector - web app
 Upload an APK, inject an ad (AdMob stub or self-hosted web banner) into it,
 recompile and re-sign. Runs apktool + apksigner on the backend.
 
@@ -882,7 +882,7 @@ def _compile_ad_activity(opts, android_jar, out_dex):
 INDEX = '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Apkcreator</title>
+<title>APK Ads Injector</title>
 <style>
  :root{--bg:#070912;--panel:#10152a;--panel2:#0c1122;--line:#222a44;--txt:#eaf0ff;
    --muted:#8a96bd;--accent:#5b8cff;--accent2:#00e0c6;--danger:#ff6b8a;--ok:#39d98a}
@@ -956,9 +956,9 @@ INDEX = '''<!doctype html>
 </style></head>
 <body><div class="wrap">
 <header>
-  <img class="logo" src="/icon.png" alt="Apkcreator">
+  <img class="logo" src="/icon.png" alt="Web2APK">
   <div class="brand">
-    <h1>Apkcreator</h1>
+    <h1>Web2APK</h1>
     <p>Upload an APK · pick a network · get a re-signed APK with your ad baked in</p>
   </div>
 </header>
@@ -1068,7 +1068,7 @@ INDEX = '''<!doctype html>
   </div>
 </div>
 <footer>
-  Apkcreator · self-hosted on Termux · public access via trycloudflare tunnel<br>
+  Web2APK · self-hosted on Termux · public access via trycloudflare tunnel<br>
   Build a WebView APK from web/HTML/GitHub, then inject AdMob / Meta / Unity / AppLovin. Ready to ship to Google Play or other stores.
 </footer>
 </div>
@@ -1296,7 +1296,7 @@ poll();
 
 REWARD_PAGE = '''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Watch reward ad · Apkcreator</title>
+<title>Watch reward ad · Web2APK</title>
 <style>
  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
    background:radial-gradient(900px 520px at -10% 110%,#2a1550 0,transparent 55%),#070912;
@@ -1345,4 +1345,4 @@ def _collect_opts():
     }
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8082, debug=False, threaded=True)
+    app.run(host="0.0.0.0", port=8080, debug=False, threaded=True)

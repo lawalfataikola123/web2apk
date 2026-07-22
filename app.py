@@ -1068,7 +1068,7 @@ INDEX = '''<!doctype html>
   </div>
 </div>
 <footer>
-  Web2APK · self-hosted on Termux · public access via trycloudflare<br>
+  Web2APK · self-hosted on Termux · public access via trycloudflare tunnel<br>
   Build a WebView APK from web/HTML/GitHub, then inject AdMob / Meta / Unity / AppLovin. Ready to ship to Google Play or other stores.
 </footer>
 </div>
